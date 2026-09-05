@@ -1,0 +1,22 @@
+{
+  "name": "brotherssportszone",
+  "private": true,
+  "packageManager": "pnpm@11.2.2",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "test": "turbo test"
+  },
+  "devDependencies": {
+    "@typescript-eslint/parser": "^8.69.0",
+    "eslint": "^9.39.5",
+    "turbo": "^2.5.0",
+    "typescript-eslint": "^8.69.0"
+  }
+}
