@@ -11,7 +11,7 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "typecheck": "turbo typecheck",
-    "test": "turbo test"
+    "test": "node --test test/*.test.mjs"
   },
   "devDependencies": {
     "@typescript-eslint/parser": "^8.69.0",
