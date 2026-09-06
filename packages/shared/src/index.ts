@@ -14,6 +14,11 @@ export const BOOKING_STATUSES = [
 ] as const;
 export type BookingStatus = (typeof BOOKING_STATUSES)[number];
 
+// Payment state shown in the admin payment UI (REQUIREMENT.md §4.2/4.3).
+// Derived from booking_payments amounts, not stored as a column.
+export const PAYMENT_STATUSES = ["paid", "partial", "due"] as const;
+export type PaymentStatus = (typeof PAYMENT_STATUSES)[number];
+
 // Match progression is admin-driven, no auto-timer (REQUIREMENT.md §5.3).
 export const MATCH_STATUSES = [
   "not_started",

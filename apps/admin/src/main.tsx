@@ -1,6 +1,5 @@
 import { createRoot } from "react-dom/client";
+import { App } from "./routes/router";
+import "./index.css";
 
-// Admin panel shell — real UI comes with Module 1 admin build-out.
-createRoot(document.getElementById("root")!).render(
-  <div>BrothersSportsZone Admin</div>
-);
+createRoot(document.getElementById("root")!).render(<App />);
