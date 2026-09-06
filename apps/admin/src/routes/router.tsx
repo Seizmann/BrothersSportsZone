@@ -1,10 +1,13 @@
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AuthProvider } from "../lib/auth";
 import { ProtectedRoute } from "./protected";
 import { Layout } from "./layout";
 import { LoginPage } from "./login";
 import { SiteSettingsPage } from "./site-settings";
 import { PaymentsPage } from "./payments";
+import { DashboardPage } from "./dashboard";
+import { ExpensesPage } from "./expenses";
+import { BookingsPage } from "./bookings";
 
 export const router = createBrowserRouter([
   { path: "/login", element: <LoginPage /> },
@@ -16,12 +19,37 @@ export const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
-      { index: true, element: <Navigate to="/payments" replace /> },
+      // Dashboard is the landing page; it self-renders a restriction notice
+      // for stuff (§4.3 — no financial visibility for staff anywhere).
+      {
+        index: true,
+        element: (
+          <ProtectedRoute requiredRoles={["sudo_admin", "manager"]}>
+            <DashboardPage />
+          </ProtectedRoute>
+        ),
+      },
       {
         path: "payments",
         element: (
           <ProtectedRoute requiredRoles={["sudo_admin", "manager", "stuff"]}>
             <PaymentsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "bookings",
+        element: (
+          <ProtectedRoute requiredRoles={["sudo_admin", "manager", "stuff"]}>
+            <BookingsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "expenses",
+        element: (
+          <ProtectedRoute requiredRoles={["sudo_admin", "manager"]}>
+            <ExpensesPage />
           </ProtectedRoute>
         ),
       },

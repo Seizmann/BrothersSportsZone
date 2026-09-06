@@ -33,6 +33,18 @@ export type MatchStatus = (typeof MATCH_STATUSES)[number];
 export const TIMEZONE = "Asia/Dhaka";
 export const CURRENCY = "BDT";
 
+// Expense entry categories (§4.4 dashboard/expense module). Fixed list so the
+// admin form and any future reporting group consistently — no free-text tags.
+export const EXPENSE_CATEGORIES = [
+  "utilities",
+  "maintenance",
+  "supplies",
+  "staff_costs",
+  "marketing",
+  "other",
+] as const;
+export type ExpenseCategory = (typeof EXPENSE_CATEGORIES)[number];
+
 export * from "./pricing.ts";
 export * from "./slots.ts";
 export * from "./booking-status.ts";

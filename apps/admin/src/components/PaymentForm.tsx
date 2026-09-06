@@ -12,6 +12,9 @@ export interface BookingRow {
   team_name: string | null;
   booking_cost: number;
   status: string;
+  // Present on listings that need it (bookings page); optional so the
+  // payments listing doesn't have to select an unused column.
+  cancellation_reason?: string | null;
 }
 
 // Role-aware payment marking. The booking list and this form are the only

@@ -3,10 +3,14 @@ import { useAuth } from "../lib/auth";
 import { supabase } from "../lib/supabase";
 import type { StaffRole } from "@brotherssportszone/shared";
 
-// Nav visibility mirrors the route guards: /settings sudo_admin only,
-// /payments all staff. RLS remains the real enforcement.
+// Nav visibility mirrors the route guards: / and /expenses sudo_admin+manager,
+// /payments and /bookings all staff, /settings sudo_admin only. RLS remains
+// the real enforcement.
 const NAV_ITEMS: { to: string; label: string; roles: readonly StaffRole[] }[] = [
+  { to: "/", label: "Dashboard", roles: ["sudo_admin", "manager"] },
+  { to: "/bookings", label: "Bookings", roles: ["sudo_admin", "manager", "stuff"] },
   { to: "/payments", label: "Payments", roles: ["sudo_admin", "manager", "stuff"] },
+  { to: "/expenses", label: "Expenses", roles: ["sudo_admin", "manager"] },
   { to: "/settings", label: "Site settings", roles: ["sudo_admin"] },
 ];
 
