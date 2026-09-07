@@ -40,7 +40,7 @@ export default async function TurfPage() {
         <p className="py-16 text-center opacity-60">Turf profile coming soon.</p>
       ) : (
         <>
-          <h1 className="text-3xl font-semibold">{turf.name}</h1>
+          <h1 className="break-words text-3xl font-semibold">{turf.name}</h1>
 
           {photoUrls.length > 0 ? (
             <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">

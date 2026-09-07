@@ -72,20 +72,21 @@ export default async function Home() {
         </svg>
 
         <div className="relative mx-auto flex max-w-4xl flex-col items-center px-4 py-20 text-center">
-          <h1 className="text-4xl font-bold sm:text-5xl">BrothersSportsZone</h1>
-          <p className="mt-4 max-w-xl text-lg text-green-100">
+          {/* break-words: the brand name is one long token that must wrap, not clip, at 320px */}
+          <h1 className="break-words text-3xl font-bold sm:text-5xl">BrothersSportsZone</h1>
+          <p className="mt-4 max-w-xl text-base text-green-100 sm:text-lg">
             Book your turf slot and follow every match live — scores, goals and cards as they happen.
           </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:justify-center">
             <Link
               href="/book"
-              className="rounded-lg bg-white px-6 py-3 font-medium text-green-900 transition hover:bg-green-50"
+              className="w-full rounded-lg bg-white px-6 py-3 text-center font-medium text-green-900 transition hover:bg-green-50 sm:w-auto"
             >
               Book a slot
             </Link>
             <Link
               href="/matches"
-              className="rounded-lg border border-white/40 px-6 py-3 font-medium transition hover:bg-white/10"
+              className="w-full rounded-lg border border-white/40 px-6 py-3 text-center font-medium transition hover:bg-white/10 sm:w-auto"
             >
               View matches
             </Link>
@@ -117,11 +118,11 @@ export default async function Home() {
           <ul className="divide-y rounded-xl border bg-white shadow-sm">
             {live.map((m) => (
               <li key={m.id}>
-                <Link href={`/matches/${m.id}`} className="flex items-center gap-3 px-4 py-4 hover:bg-green-50">
+                <Link href={`/matches/${m.id}`} className="flex min-w-0 items-center gap-3 px-4 py-4 hover:bg-green-50">
                   <span className="animate-pulse rounded bg-red-600 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-white">
                     Live
                   </span>
-                  <span className="flex flex-1 items-center justify-between gap-2">
+                  <span className="flex min-w-0 flex-1 items-center justify-between gap-2">
                     <span className="truncate font-medium">{m.team1_name}</span>
                     <span className="shrink-0 text-lg font-bold tabular-nums">
                       {m.team1_goals}–{m.team2_goals}
@@ -142,11 +143,11 @@ export default async function Home() {
           <ul className="divide-y rounded-xl border bg-white shadow-sm">
             {recent.map((m) => (
               <li key={m.id}>
-                <Link href={`/matches/${m.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-green-50">
+                <Link href={`/matches/${m.id}`} className="flex min-w-0 items-center gap-3 px-4 py-3 hover:bg-green-50">
                   <span className="rounded bg-neutral-200 px-2 py-0.5 text-[11px] font-bold uppercase tracking-wide text-neutral-600">
                     FT
                   </span>
-                  <span className="flex flex-1 items-center justify-between gap-2 text-sm">
+                  <span className="flex min-w-0 flex-1 items-center justify-between gap-2 text-sm">
                     <span className="truncate font-medium">{m.team1_name}</span>
                     <span className="shrink-0 font-bold tabular-nums">
                       {m.team1_goals}–{m.team2_goals}

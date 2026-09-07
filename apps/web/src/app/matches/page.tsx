@@ -73,7 +73,7 @@ export default async function MatchesPage() {
           <ul className="mt-2 divide-y rounded-lg border">
             {live.map((m) => (
               <li key={m.id}>
-                <Link href={`/matches/${m.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-neutral-50">
+                <Link href={`/matches/${m.id}`} className="flex min-w-0 items-center gap-3 px-4 py-3 hover:bg-neutral-50">
                   <MatchRow match={m} />
                 </Link>
               </li>
@@ -90,7 +90,7 @@ export default async function MatchesPage() {
           <ul className="mt-2 divide-y rounded-lg border">
             {recent.map((m) => (
               <li key={m.id}>
-                <Link href={`/matches/${m.id}`} className="flex items-center gap-3 px-4 py-3 hover:bg-neutral-50">
+                <Link href={`/matches/${m.id}`} className="flex min-w-0 items-center gap-3 px-4 py-3 hover:bg-neutral-50">
                   <MatchRow match={m} />
                 </Link>
               </li>
@@ -125,14 +125,15 @@ function MatchRow({
       >
         {isLive ? "Live" : match.status === "full_time" ? "FT" : "Upcoming"}
       </span>
-      <span className="flex flex-1 items-center justify-between gap-2 text-sm">
+      <span className="flex min-w-0 flex-1 items-center justify-between gap-2 text-sm">
         <span className="truncate font-medium">{match.team1_name}</span>
         <span className="shrink-0 font-bold tabular-nums">
           {match.status === "not_started" ? "vs" : `${match.team1_goals}–${match.team2_goals}`}
         </span>
         <span className="truncate font-medium">{match.team2_name}</span>
       </span>
-      <span className="shrink-0 text-xs opacity-50">{match.format}</span>
+      {/* format badge drops out below sm — badge + score already convey state */}
+      <span className="hidden shrink-0 text-xs opacity-50 sm:inline">{match.format}</span>
     </>
   );
 }

@@ -50,13 +50,13 @@ export function TeamDashboard({
     <div className="space-y-8">
       <div className="flex items-center gap-4">
         {logoUrl ? (
-          <img src={logoUrl} alt={`${team.name} logo`} className="h-16 w-16 rounded-full object-cover" />
+          <img src={logoUrl} alt={`${team.name} logo`} className="h-16 w-16 shrink-0 rounded-full object-cover" />
         ) : (
-          <div className="grid h-16 w-16 place-items-center rounded-full bg-green-800 text-xl font-bold text-white">
+          <div className="grid h-16 w-16 shrink-0 place-items-center rounded-full bg-green-800 text-xl font-bold text-white">
             {team.name.slice(0, 2).toUpperCase()}
           </div>
         )}
-        <h1 className="text-2xl font-semibold">{team.name}</h1>
+        <h1 className="min-w-0 break-words text-2xl font-semibold">{team.name}</h1>
       </div>
 
       <form onSubmit={save} className="max-w-md space-y-4 rounded-lg border p-4">
@@ -115,12 +115,12 @@ export function TeamDashboard({
               <li key={m.id}>
                 <Link
                   href={`/matches/${m.id}`}
-                  className="flex items-center justify-between px-4 py-3 hover:bg-neutral-50"
+                  className="flex min-w-0 items-center justify-between gap-3 px-4 py-3 hover:bg-neutral-50"
                 >
-                  <span className="text-sm">
+                  <span className="min-w-0 truncate text-sm">
                     {m.team1_name} <span className="font-semibold">{m.team1_goals}–{m.team2_goals}</span> {m.team2_name}
                   </span>
-                  <span className="text-xs uppercase tracking-wide opacity-60">{m.status.replace(/_/g, " ")}</span>
+                  <span className="shrink-0 text-xs uppercase tracking-wide opacity-60">{m.status.replace(/_/g, " ")}</span>
                 </Link>
               </li>
             ))}
