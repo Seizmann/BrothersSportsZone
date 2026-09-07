@@ -141,7 +141,7 @@ export function PlayersManager({
 
   return (
     <DndContext sensors={sensors} onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
-      <h1 className="text-2xl font-semibold">{teamName} — players &amp; positions</h1>
+      <h1 className="break-words text-2xl font-semibold">{teamName} — players &amp; positions</h1>
       {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
 
       <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_16rem]">

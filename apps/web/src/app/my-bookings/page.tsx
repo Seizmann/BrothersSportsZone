@@ -44,17 +44,17 @@ export default async function MyBookingsPage() {
           {bookings.map((b) => (
             <li key={b.id} className="rounded border p-4">
               <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="font-medium">
+                <div className="min-w-0">
+                  <p className="break-words font-medium">
                     {b.slot_date} at {b.slot_time.slice(0, 5)}
                   </p>
-                  <p className="text-sm opacity-70">
+                  <p className="break-words text-sm opacity-70">
                     {b.team_name ?? b.customer_name} · {b.booking_cost} {CURRENCY}
                   </p>
                   <p className="mt-1 text-xs opacity-50">Times in {TIMEZONE}</p>
                 </div>
                 <span
-                  className={`rounded-full px-3 py-1 text-xs font-medium ${
+                  className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${
                     STATUS_STYLES[b.status] ?? "bg-neutral-100"
                   }`}
                 >

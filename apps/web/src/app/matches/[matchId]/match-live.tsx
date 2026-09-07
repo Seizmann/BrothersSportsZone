@@ -64,8 +64,8 @@ export function MatchLive({ match, initialEvents }: { match: Match; initialEvent
 
   return (
     <div className="space-y-6">
-      <div className="rounded-xl border bg-gradient-to-b from-neutral-50 to-neutral-100 p-6 text-center">
-        <div className="mb-2 flex items-center justify-center gap-2 text-xs uppercase tracking-widest opacity-60">
+      <div className="rounded-xl border bg-gradient-to-b from-neutral-50 to-neutral-100 p-4 text-center sm:p-6">
+        <div className="mb-2 flex flex-wrap items-center justify-center gap-2 text-xs uppercase tracking-widest opacity-60">
           {isLive && (
             <span className="animate-pulse rounded bg-red-600 px-2 py-0.5 text-[11px] font-bold text-white">
               Live
@@ -75,12 +75,18 @@ export function MatchLive({ match, initialEvents }: { match: Match; initialEvent
           <span>· {match.format}</span>
         </div>
 
-        <div className="grid grid-cols-3 items-center gap-2">
-          <TeamBlock name={match.team1.name} logoKey={match.team1.logo_r2_key} />
-          <div className="text-4xl font-bold tabular-nums">
+        {/* Flex row (not grid-cols-3): team names shrink and wrap instead of
+            blowing the grid out on 320px screens. */}
+        <div className="flex items-center justify-center gap-3 sm:gap-6">
+          <div className="min-w-0 flex-1">
+            <TeamBlock name={match.team1.name} logoKey={match.team1.logo_r2_key} />
+          </div>
+          <div className="shrink-0 text-3xl font-bold tabular-nums sm:text-4xl">
             {status === "not_started" ? "vs" : `${team1}–${team2}`}
           </div>
-          <TeamBlock name={match.team2.name} logoKey={match.team2.logo_r2_key} />
+          <div className="min-w-0 flex-1">
+            <TeamBlock name={match.team2.name} logoKey={match.team2.logo_r2_key} />
+          </div>
         </div>
       </div>
 
@@ -96,8 +102,8 @@ export function MatchLive({ match, initialEvents }: { match: Match; initialEvent
                 <span aria-hidden className="shrink-0">
                   {e.event_type === "goal" ? "⚽" : (e.details_json?.card as string) === "red" ? "🟥" : "🟨"}
                 </span>
-                <span className="font-medium">{e.player_name}</span>
-                <span className="ml-auto truncate text-xs opacity-60">
+                <span className="min-w-0 truncate font-medium">{e.player_name}</span>
+                <span className="ml-auto min-w-0 truncate text-xs opacity-60">
                   {e.team_id === match.team1.id ? match.team1.name : e.team_id === match.team2.id ? match.team2.name : ""}
                 </span>
               </li>
