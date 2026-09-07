@@ -2,6 +2,8 @@
 
 A hybrid platform for a Bangladesh turf business: a manual-payment turf booking system plus a Flashscore/Sofascore-style football live-score and team-management product.
 
+**Live:** [brotherssportszone.com](https://brotherssportszone.com) · **Admin:** [office.brotherssportszone.com](https://office.brotherssportszone.com)
+
 **Status:** MVP in active development.
 
 ## Tech Stack
@@ -40,8 +42,8 @@ pnpm lint       # lint all workspaces
 
 ## Branch Model
 
-- `dev` — active development branch, full CI on every push
-- `main` — protected, manual merge only, auto-deploys to Vercel
+- `dev` — active development branch, full CI on every push, auto-deploys to [demo.brotherssportszone.com](https://demo.brotherssportszone.com)
+- `main` — protected, manual merge only, auto-deploys to production ([brotherssportszone.com](https://brotherssportszone.com) + [office.brotherssportszone.com](https://office.brotherssportszone.com))
 
 ## License
 
