@@ -3,6 +3,5 @@
   "framework": "vite",
   "installCommand": "pnpm install --frozen-lockfile",
   "buildCommand": "cd ../.. && pnpm build --filter @brotherssportszone/admin",
-  "rootDirectory": "apps/admin",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
