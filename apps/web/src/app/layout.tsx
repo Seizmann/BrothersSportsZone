@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getSession } from "@/lib/auth";
+import "./globals.css";
 
 // Root layout — title/metadata become DB-driven per REQUIREMENT.md §6.2 once site_settings is wired.
 export const metadata: Metadata = {
