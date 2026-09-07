@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2 # needed for the gitignore-guard diff below
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Type check
+        run: pnpm turbo typecheck
+
+      - name: Lint
+        run: pnpm turbo lint
+
+      # Unit/integration tests land with the first feature work (booking statuses,
+      # role gating, pricing, match progression) — CI.md §2.4. Kept as a no-op-safe
+      # step so the pipeline shape is fixed from day one.
+      - name: Test
+        run: pnpm turbo test
+
+      - name: Build
+        run: pnpm turbo build
+
+      # Hard gate per CI.md §2.6 — fails if a protected file is in the pushed diff.
+      - name: Gitignore guard
+        run: |
+          for f in REQUIREMENT.md PROGRESS.md SECRETS.md BRANDING.md; do
+            if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -qx "$f"; then
+              echo "::error::Protected file '$f' appears in the pushed diff — see CI.md §2.6"
+              exit 1
+            fi
+          done

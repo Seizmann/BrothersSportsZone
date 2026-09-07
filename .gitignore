@@ -1,0 +1,34 @@
+# Private project docs — NEVER commit or push (hard constraint, see REQUIREMENT.md §10)
+REQUIREMENT.md
+PROGRESS.md
+SECRETS.md
+BRANDING.md
+DECISION.md
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+dist/
+build/
+.turbo/
+
+# Test / coverage
+coverage/
+
+# Misc
+.DS_Store
+*.log
+*.tsbuildinfo
+
+# ZCode local tool state
+.zcode/
+
+# Claude Code local state
+.claude/
