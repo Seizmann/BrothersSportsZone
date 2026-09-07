@@ -265,7 +265,7 @@ export function BookingEditModal({
         <button
           type="submit"
           disabled={saving}
-          className="rounded bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700 disabled:opacity-50"
+          className="rounded bg-green-900 px-4 py-2 text-sm font-medium text-white hover:bg-green-800 disabled:opacity-50"
         >
           {saving ? "Saving…" : "Save changes"}
         </button>

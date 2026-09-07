@@ -190,7 +190,7 @@ export function ExpensesPage() {
         <button
           type="submit"
           disabled={saving}
-          className="mt-3 rounded bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700 disabled:opacity-50"
+          className="mt-3 rounded bg-green-900 px-4 py-2 text-sm font-medium text-white hover:bg-green-800 disabled:opacity-50"
         >
           {saving ? "Saving…" : "Add expense"}
         </button>

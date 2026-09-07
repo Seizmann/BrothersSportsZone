@@ -155,7 +155,7 @@ export function BookingsPage() {
                   {isFinancialRole && (
                     <button
                       onClick={() => setMode({ kind: "edit", booking: b })}
-                      className="rounded bg-neutral-900 px-4 py-2 text-sm font-medium text-white hover:bg-neutral-700"
+                      className="rounded bg-green-900 px-4 py-2 text-sm font-medium text-white hover:bg-green-800"
                     >
                       Edit booking
                     </button>

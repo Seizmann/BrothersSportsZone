@@ -65,7 +65,7 @@ export function OwnerDetailsEditor({ value, onChange, children }: Props) {
       <button
         type="button"
         onClick={addEntry}
-        className="mt-3 text-sm text-blue-700 hover:underline"
+        className="mt-3 text-sm text-green-800 hover:underline"
       >
         + Add field
       </button>
