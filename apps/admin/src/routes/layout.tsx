@@ -26,7 +26,7 @@ export function Layout() {
 
   return (
     <div className="min-h-screen bg-neutral-50">
-      <header className="border-b bg-white">
+      <header className="border-b border-green-950 bg-green-900 text-white">
         <div className="mx-auto flex max-w-4xl items-center gap-6 px-4 py-3">
           <span className="font-semibold">BSZ Admin</span>
           <nav className="flex flex-1 gap-4">
@@ -35,14 +35,14 @@ export function Layout() {
                 key={item.to}
                 to={item.to}
                 className={({ isActive }) =>
-                  `text-sm ${isActive ? "font-medium text-blue-700" : "text-neutral-600 hover:text-neutral-900"}`
+                  `text-sm ${isActive ? "font-semibold text-white" : "text-green-100 hover:text-white"}`
                 }
               >
                 {item.label}
               </NavLink>
             ))}
           </nav>
-          <button onClick={handleLogout} className="text-sm text-neutral-500 hover:text-neutral-900">
+          <button onClick={handleLogout} className="text-sm text-green-200 hover:text-white">
             Log out
           </button>
         </div>
