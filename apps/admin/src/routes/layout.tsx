@@ -10,6 +10,7 @@ const NAV_ITEMS: { to: string; label: string; roles: readonly StaffRole[] }[] = 
   { to: "/", label: "Dashboard", roles: ["sudo_admin", "manager"] },
   { to: "/bookings", label: "Bookings", roles: ["sudo_admin", "manager", "stuff"] },
   { to: "/payments", label: "Payments", roles: ["sudo_admin", "manager", "stuff"] },
+  { to: "/matches", label: "Matches", roles: ["sudo_admin", "manager", "stuff"] },
   { to: "/expenses", label: "Expenses", roles: ["sudo_admin", "manager"] },
   { to: "/settings", label: "Site settings", roles: ["sudo_admin"] },
 ];

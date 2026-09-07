@@ -29,6 +29,12 @@ export default async function RootLayout({
               <Link href="/book" className="hover:underline">
                 Book
               </Link>
+              <Link href="/matches" className="hover:underline">
+                Matches
+              </Link>
+              <Link href="/teams" className="hover:underline">
+                Teams
+              </Link>
               <Link href="/my-bookings" className="hover:underline">
                 My bookings
               </Link>

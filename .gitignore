@@ -3,6 +3,7 @@ REQUIREMENT.md
 PROGRESS.md
 SECRETS.md
 BRANDING.md
+DECISION.md
 
 # Environment
 .env
@@ -28,3 +29,6 @@ coverage/
 
 # ZCode local tool state
 .zcode/
+
+# Claude Code local state
+.claude/

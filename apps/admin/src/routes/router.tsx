@@ -8,6 +8,8 @@ import { PaymentsPage } from "./payments";
 import { DashboardPage } from "./dashboard";
 import { ExpensesPage } from "./expenses";
 import { BookingsPage } from "./bookings";
+import { MatchesPage } from "./matches";
+import { MatchDetailPage } from "./match-detail";
 
 export const router = createBrowserRouter([
   { path: "/login", element: <LoginPage /> },
@@ -42,6 +44,22 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedRoute requiredRoles={["sudo_admin", "manager", "stuff"]}>
             <BookingsPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "matches",
+        element: (
+          <ProtectedRoute requiredRoles={["sudo_admin", "manager", "stuff"]}>
+            <MatchesPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "matches/:matchId",
+        element: (
+          <ProtectedRoute requiredRoles={["sudo_admin", "manager", "stuff"]}>
+            <MatchDetailPage />
           </ProtectedRoute>
         ),
       },
